@@ -1,3 +1,5 @@
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 <div> 
 <div class="container-fluid py-5">
     <div class="col-12 mx-auto">
@@ -8,7 +10,9 @@
                 <div class="card-body">
                     <h4 class="card-title">Tailoring Shop 1</h4>
                     <p class="card-text">Naga City</p>
-                    <a href="#" class="btn-dark-green text-decoration-none">BOOK NOW</a>
+            <button type = "button" class= "btn-dark-green text-decoration-none rounded-pill">
+                    <a class="nav-link {{request()->is('ordeforms') ? 'active' : ''}}" href="/orderforms"><b> BOOK NOW </b> </a>
+                    </button>
                 </div>
             </div>
             <div class="card col p-0">
@@ -16,11 +20,19 @@
                 <div class="card-body">
                     <h4 class="card-title">Tailoring Shop 2</h4>
                     <p class="card-text">Naga City</p>
-                    <a href="#" class="btn-dark-green text-decoration-none">BOOK NOW</a>
+                   
+                    <button type = "button" class= "btn-dark-green text-decoration-none rounded-pill">
+                    <a class="nav-link {{request()->is('ordeforms') ? 'active' : ''}}" href="/orderforms"><b> BOOK NOW </b> </a>
+                    </button>
                 </div>
             </div>
-           
+
+
         </div>
     </div>
 </div>
 </div> 
+
+
+
+

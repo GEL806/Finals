@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,7 +20,31 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+    </style>
 </head>
+
 <body>
             <div class="logo-container">
             <img src="{{asset('img/logo.png')}}" alt="Logo">
@@ -41,6 +66,11 @@
                     <li class="nav-item "><a href="/" class="nav-link {{request()->is('/') ? 'active' : ''}}">HOME</a></li>
                     <li class="nav-item "><a href="/shop" class="nav-link {{request()->is('shop') ? 'active' : ''}}">HOW IT WORKS</a></li>
                     <li class="nav-item "><a href="/contact" class="nav-link {{request()->is('contact') ? 'active' : ''}}">CONTACT US</a></li>
+
+                    @if(Auth::user())
+                        <li class="nav-item "><a href="/order" class="nav-link {{request()->is('contact') ? 'active' : ''}}">Order</a></li>
+                  
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -50,6 +80,9 @@
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                                   
+
                                 </li>
                             @endif
                             <div class="vr"></div>
